@@ -19,11 +19,40 @@ class RoomList extends Component {
         });
         };
 
+
+    handleChange(e) {
+        this.setState({ newRoomName: e.target.value });
+    };
+        
+    handleSubmit(e) {
+        e.preventDefault();
+        this.setState({ newRoomName: e.target.value });
+    };
+        
+    createRoom(e) {
+        this.roomsRef.push({
+            name: this.state.newRoomName
+        }); 
+        this.setState({ newRoomName: '' });     
+        };
+        
+
     render() {
         return (
+            
         <div className = "Room-list">
         <h3>Room List </h3>
         {this.state.rooms.map( room => <ul key={ room.key } > { room.name }  </ul> )}
+        
+        {/* form submission to create new rooms */}
+        <form id = "Create-new-room" 
+                 onSubmit = { (e) => this.createRoom(this.handleSubmit(e)) }>
+                     <input type="text" value = { this.state.newRoomName }
+                 placeholder = "Enter a room name"
+                 onChange = { (e) => this.handleChange(e) }/>
+                     <input type="submit" value = "Add New" />
+             </form>
+
         </div>
         );
     };

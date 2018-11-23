@@ -24,15 +24,15 @@ class MessageList extends Component {
     render () {
         return (
             <section>
-                <div>
-                    <h3>Messages</h3>
-                        <ul className = "MessageList">
+                <div className = "Messages">
+                    <h3>Messages Go Here</h3>
+                        <ul className = "Display-Message">
                             {this.state.messages.filter(message => message.roomId === this.props.activeRoom.key).map( (message, index) =>
                             <div key = {index} >
-                                <li>{message.username}</li>
-                                <li>{message.content}</li>
-                                <li>{message.sentAt}</li>
-                                <li>{message.roomId}</li>
+                                <ul>{message.username}</ul>
+                                <ul>{message.content}</ul>
+                                <ul>{message.sentAt}</ul>
+                                <ul>{message.roomId}</ul>
                             </div>
                             )}
                         </ul>

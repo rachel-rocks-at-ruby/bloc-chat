@@ -1,20 +1,19 @@
-/* .App {
+.App {
   text-align: center;
 }
 
 
-/* .App-header {
+ .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.Left-column {
+.Nav-column {
   float: left;
   width: 20%;
   padding: 10px;
@@ -26,31 +25,21 @@
   height: 100%;
 } 
 
-.Right-column {
+.Message-column {
   float: right;
   width: 80%;
-  padding: 0px, 20px;
   border-style: solid;
   border-color: whitesmoke;
   background-color: white;
   text-align: left;
-  height: 100%;
+  height: 100%; 
 } 
 
 .Room-list {
 color : #9f9d9a;
 text-align: left;
 }
-
-
-
   
-.Room-Name {
-  background-color: transparent;
-  border: none;
-
-}
-
 ul {
   text-align: left;
   margin-left: -20px;
@@ -89,12 +78,3 @@ h3, h4 {
   padding-left: 20px;
   font-weight: lighter;
 }
- */ 
-
- SelectedRoom {
-  font-weight: bolder;
- }
-
- DefaultRoom {
-  font-weight: normal;
- }

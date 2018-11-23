@@ -35,26 +35,29 @@ class RoomList extends Component {
         this.setState({ newRoomName: '' });     
         };
 
+   
+
     render() {
         
         return (
-        < div className = "Room-List">
+        < div className = "Room-Roster">
             <h3> Available Rooms </h3>
-         
-            {this.state.rooms.map(room => <ul className = {this.props.activeRoom === room ? "SelectedRoom" : "DefaultRoom"} 
-            onClick={ () => this.props.setActiveRoom(room)} 
-            key = { room.key } > {room.name}
-             </ul> )}
+                {this.state.rooms.map((room, index) => 
+                <ul className = "Room-Links"
+                key = {index}
+                onClick={ () => this.props.setActiveRoom(room)} > {room.name}
+                </ul> 
+                )};
     
-        <form id = "Create-new-room" 
-                 onSubmit = { (e) => this.createRoom(this.handleSubmit(e)) }>
-                     <input type = "text" value = { this.state.newRoomName }
-                 placeholder = "Enter a room name"
-                 onChange = { (e) => this.handleChange(e) }/>
-                     <input type="submit" value = "Add New" />
-             </form>
+            <form id = "Create-new-room" 
+                onSubmit = { (e) => this.createRoom(this.handleSubmit(e)) }>
+                    <input type = "text" value = { this.state.newRoomName }
+                    placeholder = "Enter a room name"
+                    onChange = { (e) => this.handleChange(e) }/>
+                    <input type="submit" value = "Add New" />
+            </form>
 
-            </div>
+        </div>
         );
     };
 }

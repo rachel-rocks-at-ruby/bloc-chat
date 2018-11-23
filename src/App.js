@@ -27,16 +27,20 @@ class App extends Component {
   
   setActiveRoom(room) {
     this.setState({activeRoom: room});
-    console.log(room.name)
   };
 
   render() {
     return (
       <div className = "Chat App">
-        <section className = "Left-column" >
+      <main>
+        <section className = "Nav-column" >
           < RoomList firebase = { firebase } setActiveRoom = {this.setActiveRoom.bind(this)} />
-          < MessageList  firebase = {firebase} activeRoom = {this.state.activeRoom} />
+          </section>
+
+          <section className = "Message-column"> 
+          <MessageList  firebase = {firebase} activeRoom = {this.state.activeRoom} />
         </section>
+        </main>
     </div>
     );
   };

@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-
- .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 .Nav-column {
   float: left;
   width: 20%;
@@ -64,6 +53,13 @@ input[type=submit] {
 
 input[type=text]:focus {
   background-color: lightcyan;
+}
+
+button {
+  margin-left: 20px;
+  margin-top: 10px;
+  padding: 5px;
+  background:#ccc; 
 }
 
 h2 {

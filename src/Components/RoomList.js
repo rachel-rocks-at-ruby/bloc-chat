@@ -35,10 +35,7 @@ class RoomList extends Component {
         this.setState({ newRoomName: '' });     
         };
 
-   
-
-    render() {
-        
+    render() {   
         return (
         < div className = "Room-Roster">
             <h3> Available Rooms </h3>
@@ -47,7 +44,7 @@ class RoomList extends Component {
                 key = {index}
                 onClick={ () => this.props.setActiveRoom(room)} > {room.name}
                 </ul> 
-                )};
+                )}
     
             <form id = "Create-new-room" 
                 onSubmit = { (e) => this.createRoom(this.handleSubmit(e)) }>

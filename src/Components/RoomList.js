@@ -9,7 +9,7 @@ class RoomList extends Component {
             newRoomName: '',
         };    
         this.roomsRef = this.props.firebase.database().ref('rooms');
-        };
+    };
     
     componentDidMount() {
         this.roomsRef.on('child_added', snapshot => {
@@ -17,7 +17,7 @@ class RoomList extends Component {
             room.key = snapshot.key;
         this.setState({ rooms: this.state.rooms.concat(room) })
         });
-        };
+    };
 
     handleChange(e) {
         this.setState({ newRoomName: e.target.value });
@@ -33,7 +33,7 @@ class RoomList extends Component {
             name: this.state.newRoomName
         }); 
         this.setState({ newRoomName: '' });     
-        };
+    };
 
     render() {   
         return (

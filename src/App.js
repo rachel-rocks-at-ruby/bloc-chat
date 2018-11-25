@@ -23,6 +23,7 @@ class App extends Component {
     this.state = { 
     activeRoom: "", //or "null"?
     user: "",
+    //isLoggedIn: false,
   };
     this.setActiveRoom = this.setActiveRoom.bind(this);
 };
@@ -33,6 +34,10 @@ class App extends Component {
 
   setUser(user) {
     this.setState({user: user});
+  };
+
+  loggedIn() {
+    this.setState({loggedIn: true});
   };
 
   render() {

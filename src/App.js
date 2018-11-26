@@ -36,13 +36,14 @@ class App extends Component {
     this.setState({user: user});
   };
 
-  loggedIn() {
-    this.setState({loggedIn: true});
-  };
+  //loggedIn() {
+    //this.setState({loggedIn: true});
+  //};
 
   render() {
     return (
       <div className = "Chat App">
+      <header> Bloc Chat </header>
       <main>
         
         <section className = "Nav-column" >
@@ -51,10 +52,11 @@ class App extends Component {
           </section>
 
           <section className = "Message-column"> 
-          < MessageList  firebase = {firebase} activeRoom = {this.state.activeRoom} />
+          < MessageList  firebase = {firebase} activeRoom = {this.state.activeRoom}
+            user={this.state.user} />
         </section>
 
-      </main>
+    </main>
     </div>
     );
   };

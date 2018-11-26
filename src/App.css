@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+header {
+  display: inline-block;
+  height: 300%;
+  vertical-align: middle;
+  text-align: left;
+}
+
 .Nav-column {
   float: left;
   width: 20%;
@@ -74,3 +81,4 @@ h3, h4 {
   padding-left: 20px;
   font-weight: lighter;
 }
+

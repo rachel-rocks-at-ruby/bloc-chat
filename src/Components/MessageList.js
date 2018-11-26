@@ -41,18 +41,27 @@ class MessageList extends Component {
             }); 
             this.setState({ newMessage: '' });     
         };
+
+        formatTimeStamp(milliseconds) {
+            let d = new Date(milliseconds);
+            let hour = d.getHours();
+                 let min = d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes();
+                 let time = hour + ':' + min;
+                 return time;
+        };
+        
         
     render () {
 
         return (
             <section>
                 <div className = "Active-Room">
-                    <h3>{this.props.activeRoom.key}</h3>
+                    <h3>{this.props.activeRoom.name}</h3>
                         <ul className = "Display-Message">
                             {this.state.messages.filter(message => message.roomId === this.props.activeRoom.key).map( (message, index) =>
                             <div key = {index} >
                                 <ul><b>{message.username}:</b> {message.content}</ul> 
-                                <ul className = "SentAt">{message.sentAt}</ul>
+                                <ul className = "SentAt">{this.formatTimeStamp(message.sentAt)}</ul>
                                 <br></br>
                             </div>
                             )}

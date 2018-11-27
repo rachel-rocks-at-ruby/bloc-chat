@@ -46,7 +46,7 @@ class MessageList extends Component {
             let d = new Date(milliseconds);
             let hour = d.getHours();
                  let min = d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes();
-                 let time = hour + ':' + min;
+                 let time = (hour % 12) + ':' + min;
                  return time;
         };
         
@@ -55,19 +55,19 @@ class MessageList extends Component {
 
         return (
             <section>
-                <div className = "Active-Room">
+                <div>
                     <h3>{this.props.activeRoom.name}</h3>
-                        <ul className = "Display-Message">
+                        <ul>
                             {this.state.messages.filter(message => message.roomId === this.props.activeRoom.key).map( (message, index) =>
                             <div key = {index} >
                                 <ul><b>{message.username}:</b> {message.content}</ul> 
-                                <ul className = "SentAt">{this.formatTimeStamp(message.sentAt)}</ul>
+                                <ul>{this.formatTimeStamp(message.sentAt)}</ul>
                                 <br></br>
                             </div>
                             )}
                         </ul>
 
-                    <form id = "Create-new-message" 
+                    <form
                         onSubmit = { (e) => this.createMessage(this.handleSubmit(e)) }>
                         <input type = "text" value = { this.state.newMessage }
                         placeholder = "Type to chat"

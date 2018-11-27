@@ -23,7 +23,6 @@ class App extends Component {
     this.state = { 
     activeRoom: "", //or "null"?
     user: "",
-    //isLoggedIn: false,
   };
     this.setActiveRoom = this.setActiveRoom.bind(this);
 };
@@ -36,28 +35,29 @@ class App extends Component {
     this.setState({user: user});
   };
 
-  //loggedIn() {
-    //this.setState({loggedIn: true});
-  //};
-
   render() {
+    
     return (
-      <div className = "Chat App">
+    
+      <div className = "Container">
+      
       <header> Bloc Chat </header>
-      <main>
         
-        <section className = "Nav-column" >
-          < User firebase = {firebase} user = {this.state.user} setUser = {this.setUser.bind(this)} />
-          < RoomList firebase = { firebase } setActiveRoom = {this.setActiveRoom.bind(this)} />
-          </section>
+      <div className = "User-Menu"> 
+        < User firebase = {firebase} user = {this.state.user} setUser = {this.setUser.bind(this)} />
+      </div>
 
-          <section className = "Message-column"> 
-          < MessageList  firebase = {firebase} activeRoom = {this.state.activeRoom}
-            user={this.state.user} />
-        </section>
+      <div classname = "Room-Column">
+        < RoomList firebase = { firebase } setActiveRoom = {this.setActiveRoom.bind(this)} />
+      </div>
 
-    </main>
+        <div className = "Messages"> {this.state.activeRoom !== "" ? < MessageList  firebase = {firebase} activeRoom = {this.state.activeRoom}
+            user = {this.state.user} />: <div> <p><h2> No chat room selected: User welcome app instructions will go in a new, styled component here </h2></p></div> }
+          
+        </div>
+
     </div>
+    
     );
   };
 };

@@ -17,24 +17,21 @@ class User extends Component {
     componentDidMount() {
         this.props.firebase.auth().onAuthStateChanged( user => {
             this.props.setUser(user);
-            //this.props.loggedIn();
         });
-
     };
+
 
     render() {       
         return (
             <div>
-            
-            <h4 className = "User"> {this.props.user ? this.props.user.displayName : 'Guest'} </h4>
-
-            <button className = "Sign-In"
+            <h> {this.props.user ? "Welcome, " + this.props.user.displayName : "Welcome, Guest"} </h>
+           { this.props.user !== null ? 
+           <button onClick = {this.signOut.bind(this)} > Sign Out </button>
+            :
+            <button
             onClick = {this.signIn.bind(this)} > Sign In </button>
-            
-            <button className = "Sign-Out"
-            onClick = {this.signOut.bind(this)} > Sign Out </button>
-
-            </div>
+           }
+           </div>
         )
     }
 };

@@ -1,15 +1,16 @@
-.App {
-  text-align: center;
+Container {
+
 }
 
-header {
-  display: inline-block;
-  height: 300%;
-  vertical-align: middle;
-  text-align: left;
+Header {
+align-content: center;
 }
 
-.Nav-column {
+User-Menu {
+
+}
+
+.Room-Column {
   float: left;
   width: 20%;
   padding: 10px;
@@ -19,36 +20,26 @@ header {
   text-align: left;
   position: absolute;
   height: 100%;
-} 
+}
 
-.Message-column {
-  float: right;
-  width: 80%;
+.Messages {
+  float: center;
   border-style: solid;
   border-color: whitesmoke;
   background-color: white;
   text-align: left;
   height: 100%; 
-} 
-
-.Room-list {
-color : #9f9d9a;
-text-align: left;
-}
-  
-ul {
-  text-align: left;
-  margin-left: -20px;
-  font-weight: lighter;
 }
 
-input[type=text] {
+[type=text] {
   border: 0;
   outline: 0;
   margin-left: 20px;
   padding-bottom: 10px;
   background: transparent;
   border-bottom: 1px solid #585858;
+  width: 500px;
+
 }
 
 input[type=submit] {
@@ -63,11 +54,12 @@ input[type=text]:focus {
 }
 
 button {
-  margin-left: 20px;
-  margin-top: 10px;
-  padding: 5px;
-  background:#ccc; 
+    margin-left: 20px;
+    margin-top: 10px;
+    padding: 5px;
+    background:#ccc; 
 }
+
 
 h2 {
   color: #494a49;
@@ -81,4 +73,3 @@ h3, h4 {
   padding-left: 20px;
   font-weight: lighter;
 }
-

@@ -40,6 +40,7 @@ class App extends Component {
     return (
       <body>
         <header>
+          Bloc Chat
           < User firebase = {firebase} user = {this.state.user} setUser = {this.setUser.bind(this)} />
         </header>
      

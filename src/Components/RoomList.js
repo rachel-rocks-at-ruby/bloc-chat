@@ -37,12 +37,11 @@ class RoomList extends Component {
 
     render() {   
         return (
-        < div className = "Room-Roster">
-            <h3> Available Rooms </h3>
+        < div>
+            Available Rooms
                 {this.state.rooms.map((room, index) => 
-                <ul className = "Room-Links"
-                key = {index}
-                onClick={ () => this.props.setActiveRoom(room)} > {room.name}
+                <ul key = {index}
+                    onClick={ () => this.props.setActiveRoom(room)} > {room.name}
                 </ul> 
                 )}
     

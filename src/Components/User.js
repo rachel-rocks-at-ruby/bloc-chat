@@ -24,7 +24,7 @@ class User extends Component {
     render() {       
         return (
             <div>
-            <h> {this.props.user ? "Welcome, " + this.props.user.displayName : "Welcome, Guest"} </h>
+            {this.props.user ? "Welcome, " + this.props.user.displayName : "Welcome, Guest"}
            { this.props.user !== null ? 
            <button onClick = {this.signOut.bind(this)} > Sign Out </button>
             :

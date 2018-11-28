@@ -62,7 +62,6 @@ class MessageList extends Component {
                             <div key = {index} >
                                 <ul><b>{message.username}:</b> {message.content}</ul> 
                                 <ul>{this.formatTimeStamp(message.sentAt)}</ul>
-                                <br></br>
                             </div>
                             )}
                         </ul>

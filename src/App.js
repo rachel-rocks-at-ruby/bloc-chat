@@ -38,26 +38,20 @@ class App extends Component {
   render() {
     
     return (
-    
-      <div className = "Container">
-      
-      <header> Bloc Chat </header>
-        
-      <div className = "User-Menu"> 
-        < User firebase = {firebase} user = {this.state.user} setUser = {this.setUser.bind(this)} />
-      </div>
+      <body>
+        <header>
+          < User firebase = {firebase} user = {this.state.user} setUser = {this.setUser.bind(this)} />
+        </header>
+     
+        <nav classname = "rooms">
+          < RoomList firebase = { firebase } setActiveRoom = {this.setActiveRoom.bind(this)} />
+        </nav>
 
-      <div classname = "Room-Column">
-        < RoomList firebase = { firebase } setActiveRoom = {this.setActiveRoom.bind(this)} />
-      </div>
-
-        <div className = "Messages"> {this.state.activeRoom !== "" ? < MessageList  firebase = {firebase} activeRoom = {this.state.activeRoom}
-            user = {this.state.user} />: <div> <p><h2> No chat room selected: User welcome app instructions will go in a new, styled component here </h2></p></div> }
-          
-        </div>
-
-    </div>
-    
+        <article className = "messages"> 
+          {this.state.activeRoom !== "" ? < MessageList  firebase = {firebase} activeRoom = {this.state.activeRoom}
+            user = {this.state.user} />: <div> Select a chatroom from the left nav to see chat history </div> }
+        </article>
+    </body>
     );
   };
 };

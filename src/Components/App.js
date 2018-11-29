@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './App.css';
-import RoomList from './Components/RoomList';
-import MessageList from './Components/MessageList';
-import User from './Components/User';
+import RoomList from './RoomList';
+import MessageList from './MessageList';
+import User from './User';
 import * as firebase from 'firebase';
 
 // Initialize Firebase
@@ -20,12 +20,14 @@ firebase.initializeApp(config);
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = { 
-    activeRoom: "", //or "null"?
-    user: "",
-  };
+      activeRoom: "", //or "null"?
+      user: "",
+    };
+
     this.setActiveRoom = this.setActiveRoom.bind(this);
-};
+  };
   
   setActiveRoom(room) {
     this.setState({activeRoom: room});
@@ -36,22 +38,27 @@ class App extends Component {
   };
 
   render() {
-    
+    const flexy = {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between'
+    }
     return (
-      <body>
-        <header>
-          < User firebase = {firebase} user = {this.state.user} setUser = {this.setUser.bind(this)} />
+      <Fragment>
+        <header style={flexy}>
+          Bloc Chat
+          <User firebase={firebase} user={this.state.user} setUser={this.setUser.bind(this)} />
         </header>
      
-        <nav classname = "rooms">
-          < RoomList firebase = { firebase } setActiveRoom = {this.setActiveRoom.bind(this)} />
+        <nav className="rooms">
+          <RoomList firebase={ firebase } setActiveRoom={this.setActiveRoom.bind(this)} />
         </nav>
 
-        <article className = "messages"> 
-          {this.state.activeRoom !== "" ? < MessageList  firebase = {firebase} activeRoom = {this.state.activeRoom}
+        <article className="messages"> 
+          {this.state.activeRoom !== "" ? <MessageList  firebase={firebase} activeRoom={this.state.activeRoom}
             user = {this.state.user} />: <div> Select a chatroom from the left nav to see chat history </div> }
         </article>
-    </body>
+      </Fragment>
     );
   };
 };

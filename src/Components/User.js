@@ -24,13 +24,12 @@ class User extends Component {
     render() {       
         return (
             <div>
-            {this.props.user ? "Welcome, " + this.props.user.displayName : "Welcome, Guest"}
-           { this.props.user !== null ? 
-           <button onClick = {this.signOut.bind(this)} > Sign Out </button>
-            :
-            <button
-            onClick = {this.signIn.bind(this)} > Sign In </button>
-           }
+                { this.props.user ? "Welcome, " + this.props.user.displayName : "Welcome, Guest"}
+                { this.props.user !== null ? 
+                    <button onClick={this.signOut.bind(this)}> Sign Out </button>
+                        :
+                    <button onClick={this.signIn.bind(this)}> Sign In </button>
+                }
            </div>
         )
     }
